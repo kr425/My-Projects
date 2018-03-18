@@ -1,2 +1,2 @@
 # My Repo
-This Repo has multiple projects I worked on in grad and undergrad. All code for my thesis work is in the Health_Watch branch. There is also computer vision work, and genetics work.
+This Repo has multiple projects I've worked on. As of now, there is computer vision work, and Data Sequencing for Genetics work.
