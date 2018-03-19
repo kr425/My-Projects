@@ -10,14 +10,9 @@
 
 
 
-/***********************************************************************
-  This is the only file you need to change for your assignment. The
-  other files control the UI (in case you want to make changes.)
-************************************************************************/
+*/
 
-/***********************************************************************
-  The first eight functions provide example code to help get you started
-************************************************************************/
+
 
 
 // Convert an image to grayscale
@@ -198,13 +193,7 @@ void MainWindow::ConvertDouble2QImage(QImage *image)
 }
 
 
-/**************************************************
- TIME TO WRITE CODE
-**************************************************/
 
-/**************************************************
- TASK 1
-**************************************************/
 
 // Convolve the image with the kernel
 void MainWindow::Convolution(double** image, double *kernel, int kernelWidth, int kernelHeight, bool add)
