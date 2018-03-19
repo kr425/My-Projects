@@ -1055,9 +1055,7 @@ void MainWindow::PixelSeedImage(double** image, int num_clusters)
 }
 
 
-/**************************************************
- EXTRA CREDIT TASKS
-**************************************************/
+
 
 // Perform K-means clustering on a color image using the color histogram
 void MainWindow::HistogramSeedImage(double** image, int num_clusters)
@@ -1278,20 +1276,4 @@ void MainWindow::BilateralImage(double **image, double sigmaS, double sigmaI)
 
 }
 
-// Perform the Hough transform
-void MainWindow::HoughImage(double** image)
-/*
- * image: input image in matrix form of size (imageWidth*imageHeight)*3 having double values
-*/
-{
-    // Add your code here
-}
 
-// Perform smart K-means clustering
-void MainWindow::SmartKMeans(double** image)
-/*
- * image: input image in matrix form of size (imageWidth*imageHeight)*3 having double values
-*/
-{
-    // Add your code here
-}
