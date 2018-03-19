@@ -1,2 +1,2 @@
-# My Repo
-This Repo has multiple projects I've worked on. As of now, there is computer vision work, and Data Sequencing for Genetics work.
+# Random Algos
+This Repo contains random algorithms and functions such as Kalman Filter, Steepest Descent, LQR, the Jacobian and many more. 
