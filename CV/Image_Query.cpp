@@ -155,11 +155,7 @@ void conrgn(int *image, int *nimage, int width, int height)
 }
 
 
-/**************************************************
- **************************************************
-TIME TO WRITE CODE
-**************************************************
-**************************************************/
+
 
 
 /**************************************************
@@ -168,8 +164,7 @@ Code to compute the features of a given image (both database images and query im
 
 std::vector<double*> MainWindow::ExtractFeatureVector(QImage image)
 {
-    /********** STEP 1 **********/
-
+   
     // Display the start of execution of this step in the progress box of the application window
     // You can use these 2 lines to display anything you want at any point of time while debugging
 
@@ -178,7 +173,7 @@ std::vector<double*> MainWindow::ExtractFeatureVector(QImage image)
 
     // Perform K-means color clustering
     // This time the algorithm returns the cluster id for each pixel, not the rgb values of the corresponding cluster center
-    // The code for random seed clustering is provided. You are free to use any clustering algorithm of your choice from HW 1
+    
     // Experiment with the num_clusters and max_iterations values to get the best result
 
     int num_clusters = 5;
@@ -187,14 +182,14 @@ std::vector<double*> MainWindow::ExtractFeatureVector(QImage image)
     Clustering(&image_copy,num_clusters,max_iterations);
 
 
-    /********** STEP 2 **********/
+   
 
 
     ui->progressBox->append(QString::fromStdString("Connecting components.."));
     QApplication::processEvents();
 
     // Find connected components in the labeled segmented image
-    // Code is given, you don't need to change
+   
 
     int r, c, w = image_copy.width(), h = image_copy.height();
     int *img = (int*)malloc(w*h * sizeof(int));
@@ -218,7 +213,7 @@ std::vector<double*> MainWindow::ExtractFeatureVector(QImage image)
 
     // The resultant image of Step 2 is 'nimg', whose values range from 1 to num_regions
 
-    // WRITE YOUR REGION THRESHOLDING AND REFINEMENT CODE HERE
+   
 
 
     /********** STEP 3 **********/
@@ -239,7 +234,7 @@ std::vector<double*> MainWindow::ExtractFeatureVector(QImage image)
     for(int i=0;i<num_regions; i++)
         features[i] = new double[featurevectorlength](); // initialize with zeros
 
-    // Sample code for computing the mean RGB values and size of each connected component
+    
 
     for(int r=0; r<h; r++)
         for (int c=0; c<w; c++)
@@ -271,14 +266,14 @@ std::vector<double*> MainWindow::ExtractFeatureVector(QImage image)
 // Function that implements distance measure 1
 double distance1(double* vector1, double* vector2, int length)
 {
-    // default, for trial only; change according to your distance measure
+   
     return ((double) rand() / (double) RAND_MAX);
 }
 
 // Function that implements distance measure 2
 double distance2(double* vector1, double* vector2, int length)
 {
-    // default, for trial only; change according to your distance measure
+   
     return ((double) rand() / (double) RAND_MAX);
 }
 
