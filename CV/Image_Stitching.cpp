@@ -5,10 +5,7 @@
 #include "Matrix.h"
 #include <iostream>
 #include <stdlib.h>
-/*******************************************************************************
-    The following are helper routines with code already written.
-    The routines you'll need to write for the assignment are below.
-*******************************************************************************/
+
 
 /*******************************************************************************
 Draw detected Harris corners
@@ -49,8 +46,7 @@ Compute corner point descriptors
     If the descriptor cannot be computed, i.e. it's too close to the boundary of
     the image, its descriptor length will be set to 0.
 
-    I've implemented a very simple 8 dimensional descriptor.  Feel free to
-    improve upon this.
+    
 *******************************************************************************/
 void MainWindow::ComputeDescriptors(QImage image, CIntPt *cornerPts, int numCornerPts)
 {
@@ -239,21 +235,7 @@ bool MainWindow::ComputeHomography(CMatches *matches, int numMatches, double h[3
 }
 
 
-/*******************************************************************************
-*******************************************************************************
-*******************************************************************************
 
-    The routines you need to implement are below
-
-
-
-
-*******************************************************************************
-*******************************************************************************
-*******************************************************************************/
-
-
-/*******************************************************************************
 
 
 Blur a single channel floating point image with a Gaussian.
@@ -271,7 +253,7 @@ void MainWindow::Convolution(double* image,int imageWidth,int imageHeight,  doub
  * kernel: 1-D array of kernel values
  * kernelWidth: width of the kernel
  * kernelHeight: height of the kernel
- * add: a boolean variable (taking values true or false)
+
 */
 {
     //Zero-pad the buffer image based on the kernel height and width
@@ -597,7 +579,7 @@ void MainWindow::MatchCornerPoints(QImage image1, CIntPt *cornerPts1, int numCor
     numMatches = 0;
 
     // Compute the descriptors for each corner point.
-    // You can ac_pess the descriptor for each corner point using cornerPts1[i].m_Desc[j].
+   
     // If cornerPts1[i].m_DescSize = 0, it was not able to compute a descriptor for that point
     ComputeDescriptors(image1, cornerPts1, numCornerPts1);
     ComputeDescriptors(image2, cornerPts2, numCornerPts2);
@@ -682,11 +664,7 @@ Project a point (x1, y1) using the homography transformation h
 *******************************************************************************/
 void MainWindow::Project(double x1, double y1, double &x2, double &y2, double h[3][3])
 {
-    // Add your code here.
     /*
-Step 3: (10 pts) Compute the homography between the images using RANSAC (Szeliski, Section 6.1.4). Following these steps:
-
-3a: Write the projection function:
 
 void Project(double x1, double y1, doube &x2, double &y2, double h[3][3])
 This should project point (x1, y1) using the homography h.
@@ -711,16 +689,7 @@ int MainWindow::ComputeInlierCount(double h[3][3], CMatches *matches, int numMat
 {
 
 
-   /*
-3b: Write the function to count inliers:
-
-int ComputeInlierCount(double h[3][3], Cmatches *matches, int numMatches, double inlierThreshold).
-This is a helper function for RANSAC that computes the number of inlying points given a homography h.
-That is, project the first point in each match using the function "Project".
-If the projected point is less than the distance inlierThreshold (default is 5) from the second point,
-it is an inlier. Return the total number of inliers.
-*/
-
+ 
     // Add your code here.
     int numin=0;
     double x1;
@@ -766,24 +735,11 @@ Compute homography transformation between images using RANSAC.
 void MainWindow::RANSAC(CMatches *matches, int numMatches, int numIterations, double inlierThreshold,
                         double hom[3][3], double homInv[3][3], QImage &image1Display, QImage &image2Display)
 {
-    // Add your code here.
-
-    // After you're done computing the inliers, display the corresponding matches.
-    //DrawMatches(inliers, numInliers, image1Display, image2Display);
-
+   
     /*
 This function takes a list of potentially matching points between two images and returns
-the homography transformation that relates them. To do this follow these steps:
-a. Iteratively do the following for "numIterations" times: (try 200 on the UI)
-          i. Randomly select 4 pairs of potentially matching points from "matches".
-          ii. Compute the homography relating the four selected matches with the function "ComputeHomography. "
-          iii. Using the computed homography, compute the number of inliers using "ComputeInlierCount".
-          iv. If this homography produces the highest number of inliers, store it as the best homography.
-b. Given the highest scoring homography, once again find all the inliers.
-Compute a new refined homography using all of the inliers (not just using four points as you did previously. )
-Compute an inverse homography as well (the fourth term of the function ComputeHomography should be false),
-and return their values in "hom" and "homInv".
-c. Display the inlier matches using "DrawMatches".
+the homography transformation that relates them.
+
 
      */
 
@@ -863,7 +819,7 @@ Bilinearly interpolate image (helper function for Stitch)
     (x, y) - location to interpolate
     rgb - returned color values
 
-    You can just copy code from previous assignment.
+ 
 *******************************************************************************/
 bool MainWindow::BilinearInterpolation(QImage *image, double x, double y, double rgb[3])
 
