@@ -1,7 +1,7 @@
 
 
 
-function y_n = srconvert(x_n)
+function y_n = Interp_Decimate(x_n)
 %
 % y_n = srconvert(x_n) Performs sampling rate conversion of input signal, 
 % x_n sampled at 11,025 Hz and converts to y_n sampled at 24,000 Hz
